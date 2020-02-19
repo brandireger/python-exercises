@@ -3,7 +3,8 @@ fruits = ['mango', 'kiwi', 'strawberry', 'guava', 'pineapple', 'mandarin orange'
 numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 17, 19, 23, 256, -8, -4, -2, 5, -9]
 
 # Exercise 1 - rewrite the above example code using list comprehension syntax. 
-# Make a variable named uppercased_fruits to hold the output of the list comprehension. Output should be ['MANGO', 'KIWI', etc...]
+# Make a variable named uppercased_fruits to hold the output of the list comprehension. 
+# Output should be ['MANGO', 'KIWI', etc...]
 
 uppercased_fruits = [fruit.upper() for fruit in fruits]
 
@@ -19,10 +20,20 @@ capitalized_fruits = [fruit.capitalize() for fruit in fruits]
     count = 0 
     for char in arg: 
         if char in vowel: 
-            count = count + 1 
+            count += 1 
     return count 
 
 fruits_with_more_than_two_vowels = [fruit for fruit in fruits if count_vowels(fruit) > 2] 
+
+#Alternate solution from class:
+fruits_with_more_than_two_vowels = [
+    fruit for fruit in fruits if
+        fruit.count('a') +
+        fruit.count('e') +
+        fruit.count('i') +
+        fruit.count('o') +   
+        fruit.count('u') > 2                     
+]
 
 # Exercise 4 - make a variable named fruits_with_only_two_vowels. The result should be ['mango', 'kiwi', 'strawberry']
 
@@ -66,7 +77,10 @@ negative_numbers = [number for number in numbers if number < 0]
 
 # Exercise 14 - use a list comprehension w/ a conditional in order to produce a list of numbers with 2 or more numerals
 
-[number for number in numbers if number > 9]
+[number for number in numbers if number >= 10 or num <= -10]
+
+# Alt solution from class:
+[num for num in numbers if len(str(abs(num))) >= 2]
 
 # Exercise 15 - Make a variable named numbers_squared that contains the numbers list with each element squared. Output is [4, 9, 16, etc...]
 
